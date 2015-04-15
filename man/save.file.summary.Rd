@@ -1,8 +1,7 @@
 \name{save.file.summary}
 \alias{save.file.summary}
-\title{
-Save File
-}
+\title{Save File}
+
 \description{
 This functions allow to save the information on a file.
 }
@@ -22,23 +21,18 @@ Indicates if the user wants to append information on the same file
 }
   \item{mod1}{
 Name of the column of dataframe that represents the first modality
- }
-   \item{mod2}{
+}
+  \item{mod2}{
 Name of the column of dataframe that represents the second modality
- }
+}
 }
 \details{
 The user don't need to fill the \code{app} parameter, because by default it was set to \code{TRUE}. This parameter allow the user to choose if he wants the results of differents performances in the same file, or each time that he starts a new performance the file will be new.
 }
+
 \value{
 This functions saves on the file with name \code{name} the performance parameters of the test.
 }
-
-
-\seealso{
-\code{\link{rocboot.summary}}
-}
-
 
 \examples{
 #data(zhang)
@@ -55,8 +49,6 @@ This functions saves on the file with name \code{name} the performance parameter
 #If the user doesn't want to append the results
 #save.file.summary(results,nameE,app=FALSE,moda1,moda2)
 }
-
-
 
 \keyword{ Save }
 \keyword{ File }

@@ -1,38 +1,38 @@
 \name{read.manually.introduced}
 \alias{read.manually.introduced}
-\title{
-Read data manually introduced
-}
+\title{Read data manually introduced}
+
 \description{
 This function allows to read the testing data.
 }
 \usage{
-read.manually.introduced(dat, modality1, testdirection1, modality2, 
+read.manually.introduced(dat, modality1, testdirection1, modality2,
 testdirection2, status1, related = TRUE, status2 = NULL)
 }
+
 \arguments{
-\item{dat}{
+  \item{dat}{
 Dataframe of data to anlyse
 }
-\item{modality1}{
+  \item{modality1}{
 Name of the column of dataframe that represents the first modality
 }
-\item{testdirection1}{
+  \item{testdirection1}{
 Indicates the direction of the test for modality 1. If \code{TRUE} means that larger test results represent more positive test
 }
-\item{modality2}{
+  \item{modality2}{
 Name of the column of dataframe that represents the second modality
 }
-\item{testdirection2}{
+  \item{testdirection2}{
 Indicates the direction of the test for modality 2. If \code{TRUE} means that larger test results represent more positive test
 }
-\item{status1}{
+  \item{status1}{
 Name of the column of dataframe that represents the Status 1
 }
-\item{related}{
+  \item{related}{
 Boolean parameter that represents if the two modalities are related or not
 }
-\item{status2}{
+  \item{status2}{
 Name of the column of dataframe that represents the Status 2
 }
 }
@@ -56,9 +56,7 @@ This functions returns a list with the following data:
 #data=read.manually.introduced(zhang, moda1,TRUE, moda2,TRUE, "status", TRUE)
 }
 
-
 \keyword{ Read }
 \keyword{ Data }
 \keyword{ Manually }
 \keyword{ Introduced }
-

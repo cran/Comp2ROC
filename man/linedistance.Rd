@@ -1,7 +1,7 @@
 \name{linedistance}
 \alias{linedistance}
-\title{
-Intersection Points}
+\title{Intersection Points}
+
 \description{
 This function allows to calculate the intersection points between the ROC curve and the sampling lines. Also calculates the distance between this points and the reference point.
 }
@@ -10,21 +10,22 @@ linedistance(curve.fpr, curve.tpr, curve.segslope, curve.slope, line.slope, ref.
 }
 
 \arguments{
-\item{curve.fpr}{
+  \item{curve.fpr}{
 False positive rate vector with all points of the given Curve
 }
-\item{curve.tpr}{
+  \item{curve.tpr}{
 True positive rate vector with all points of the given Curve
 }
-\item{curve.segslope}{
+  \item{curve.segslope}{
 Vector with all segments slope of the ROC curves
 }
-\item{curve.slope}{
+  \item{curve.slope}{
 Vector with all the slope of all segments that connect the ROC curve with the reference point
 }
-\item{line.slope}{
-Vector with the slope of all sampling lines}
-\item{ref.point}{
+  \item{line.slope}{
+Vector with the slope of all sampling lines
+}
+  \item{ref.point}{
 Reference point where we start drawing the sampling lines
 }
 }
@@ -35,7 +36,6 @@ This function returns a list with:
 \item{x}{Vector with all x coordinates of intersection points}
 \item{y}{Vector with all y coordinates of intersection points}
 }
-
 
 \seealso{
 \code{\link{lineslope}}

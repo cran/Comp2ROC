@@ -1,19 +1,18 @@
 \name{areatriangles}
 \alias{areatriangles}
-\title{
-Triangle Areas
-}
+\title{Triangle Areas}
 \description{
 This function allows to calculate the triangles area formed with two points that was next to each other and the reference point. It also allows to calculate the total area based on the previous triangles.
 }
 \usage{
 areatriangles(line.slope, line.dist1)
 }
+
 \arguments{
-\item{line.slope}{
+  \item{line.slope}{
 Vector with all sampling lines slope
 }
-\item{line.dist1}{   
+  \item{line.dist1}{
 Vector with the ROC Curves and sampling lines intersection points, the distance between this points and the reference point
 }
 }

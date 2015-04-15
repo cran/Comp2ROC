@@ -1,1 +1,3 @@
 exportPattern("^[[:alpha:]]+")
+import("ROCR")
+import("boot")

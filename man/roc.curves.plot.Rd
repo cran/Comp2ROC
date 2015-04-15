@@ -1,15 +1,14 @@
 \name{roc.curves.plot}
 \alias{roc.curves.plot}
-\title{
-Plot ROC curves
-}
+\title{Plot ROC curves}
+
 \description{
 This function allows to plot the two roc curves in comparasion.
 }
 \usage{
 roc.curves.plot(sim1.curve, sim2.curve, mod1, mod2)
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{sim1.curve}{
 Curve 1 created using the function \code{performance}.
@@ -28,9 +27,7 @@ Name of Modality 2
 \seealso{
 \code{\link{read.file}}
 \code{\link{read.manually.introduced}}
-
 }
-
 
 \examples{
 #data(zhang)

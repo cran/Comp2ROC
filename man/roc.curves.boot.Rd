@@ -1,17 +1,19 @@
 \name{roc.curves.boot}
 \alias{roc.curves.boot}
-\title{
-Compare curves
-}
+\title{Compare curves}
+
 \description{
 This is the function which control the whole package.This uses all functions except the reading ones and \code{rocboot.summary} and \code{save.file.summary}.
 }
 \usage{
-roc.curves.boot(data, nb = 1000, alfa = 0.05, name, mod1, mod2)
+roc.curves.boot(data, nb = 1000, alfa = 0.05, name, mod1, mod2, related = TRUE)
 }
+
 \arguments{
   \item{data}{
-Data obtained throught \code{read.file} or \code{read.manually.introduced} }
+Data obtained throught \code{read.file} or \code{read.manually.introduced}
+}
+
   \item{nb}{
 Number of permutations
 }
@@ -19,12 +21,16 @@ Number of permutations
 Confidance level for parametric methods
 }
   \item{name}{
-Name too show in graphs}
+Name too show in graphs
+}
   \item{mod1}{
 Name of Modality 1
 }
   \item{mod2}{
 Name of Modality 2
+}
+  \item{related}{
+Boolean parameter that represents if the two modalities are related or not
 }
 }
 

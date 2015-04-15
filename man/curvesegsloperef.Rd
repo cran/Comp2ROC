@@ -1,8 +1,7 @@
 \name{curvesegsloperef}
 \alias{curvesegsloperef}
-\title{
-Segment Slopes to Reference Point
-}
+\title{Segment Slopes to Reference Point}
+
 \description{
 This function allows to calculate the segments slope that connect the ROC curve segments with the reference point (1,0).
 }
@@ -11,13 +10,13 @@ curvesegsloperef(curve.fpr, curve.tpr, ref.point)
 }
 
 \arguments{
-\item{curve.fpr}{
+  \item{curve.fpr}{
 False positive rate vector with all points of the given Curve
 }
-\item{curve.tpr}{
+  \item{curve.tpr}{
 True positive rate vector with all points of the given Curve
 }
-\item{ref.point}{
+  \item{ref.point}{
 Reference point where we start drawing the sample lines
 }
 }

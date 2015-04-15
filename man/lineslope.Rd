@@ -1,14 +1,15 @@
 \name{lineslope}
 \alias{lineslope}
-\title{
-Sampling Lines Slope
-}
+\title{Sampling Lines Slope}
+
 \description{
 This function allows to calculate the sample lines slope that were drawn beginning at the reference point.
 }
+
 \usage{
 lineslope(K)
 }
+
 \arguments{
 \item{K}{
 Number of sampling lines that we want to create
@@ -26,3 +27,4 @@ lineslope(K)
 
 \keyword{ Sampling }
 \keyword{ Line }
+

@@ -1,7 +1,5 @@
 comp.roc.curves <-
 function(result,ci.flag=FALSE,graph.flag=FALSE,nome) {
-# biblioteca bootstrap
-library(boot)
 
 x<-result$diffareas
 mask=c()

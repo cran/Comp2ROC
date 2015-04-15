@@ -1,19 +1,15 @@
 read.manually.introduced <-
 function(dat,modality1,testdirection1,modality2,testdirection2,status1,related=TRUE,status2=NULL){
-  library(ROCR)
-  
   #Select modality
   if(testdirection1){
     mod1.ind=dat[modality1]
-  }
-  else{
-    mod1.ind=(-1)*dat[modality1]
+  } else{
+    mod1.ind=(-1)*as.numeric(unlist(dat[modality1]))
   }
   if(testdirection2){
     mod2.ind=dat[modality2]
-  }
-  else{
-    mod2.ind=(-1)*dat[modality2]
+  } else{
+    mod2.ind=(-1)*as.numeric(unlist(dat[modality2]))
   }
   
   sim1.ind=mod1.ind

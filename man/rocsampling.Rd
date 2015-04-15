@@ -1,8 +1,7 @@
 \name{rocsampling}
 \alias{rocsampling}
-\title{
-ROC Sampling
-}
+\title{ROC Sampling}
+
 \description{
 This function allows to calculate some statistical measures like extension and location.
 }
@@ -31,6 +30,7 @@ Number of sampling lines
 This function uses functions like \code{areatriangles}, \code{curvesegslope}, \code{curvesegsloperef}, \code{diffareatriangles}, \code{linedistance} and \code{lineslope to calculate} that measures.
 By default the number of sampling lines is 100, beacause it was proved by Braga that it was the optimal number.
 }
+
 \value{
 This funcion returns a list with the following components:
 \item{AUC1}{Total Area of Curve 1 (using triangles)}
@@ -48,7 +48,6 @@ This funcion returns a list with the following components:
 \item{dist2}{Distance of the intersection points of Curve 2 to reference point}
 }
 
-
 \seealso{
 \code{\link{areatriangles}}
 \code{\link{curvesegslope}}
@@ -56,9 +55,7 @@ This funcion returns a list with the following components:
 \code{\link{diffareatriangles}}
 \code{\link{linedistance}}
 \code{\link{lineslope}}
-
 }
-
 
 \keyword{ ROC }
 \keyword{ Sampling }

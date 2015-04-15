@@ -1,6 +1,5 @@
 roc.curves.boot <-
-function(data,nb=1000,alfa=0.05,name,mod1,mod2){
-  
+function(data,nb=1000,alfa=0.05,name,mod1,mod2,related=TRUE){  
   nomeg=paste(name)
   
   sim1.ind=unlist(data[1])
@@ -10,44 +9,53 @@ function(data,nb=1000,alfa=0.05,name,mod1,mod2){
   sim2.sta=unlist(data[4])
   
   imax=length(sim1.sta[sim1.sta==0])
-  jmax=length(sim2.sta[sim2.sta==1])
+  jmax=length(sim1.sta[sim1.sta==1])
+  imax2=length(sim2.sta[sim2.sta==0])
+  jmax2=length(sim2.sta[sim2.sta==1])
+  
   total_cases=imax+jmax
+  total_cases2=imax2+jmax2
   sim1=t(rbind(sim1.sta,sim1.ind)[,order(sim1.sta,sim1.ind)])
   sim2=t(rbind(sim2.sta,sim2.ind)[,order(sim2.sta,sim2.ind)])
   dados=rbind(cbind(sim1[,2],sim1[,1]),cbind(sim2[,2],sim2[,1]))
   
   mod=2
   
+  if(imax>imax2) maxImax = imax else maxImax = imax2
+  if(jmax>jmax2) maxJmax = jmax else maxJmax = jmax2
   # norm defines the negative cases
-  norm=array(data=NA,c(imax,mod))
+  norm=array(data=NA,c(maxImax,mod))
   # abnorm defines the positive cases
-  abnorm=array(data=NA,c(jmax,mod))
+  abnorm=array(data=NA,c(maxJmax,mod))
+  
   # data are atributed to the arrays norm and abnorm
   for (i in 1:imax) {
-    for (k in 1:mod){
-      norm[i,k]=dados[i+(total_cases*(k-1)),1]
-    }
+    norm[i,1]=dados[i,1]
   }
   for (j in 1:jmax) {
-    for (k in 1:mod){
-      abnorm[j,k]=dados[j+imax+(total_cases*(k-1)),1]
-    }
+    abnorm[j,1]=dados[j+imax,1]
+  }
+  for (i in 1:imax2) {
+    norm[i,2]=dados[i+total_cases,1]
+  }
+  for (j in 1:jmax2) {
+    abnorm[j,2]=dados[j+total_cases+imax2,1]
   }
   
-  # calcula diversos valores (frequencias,...)
+  # calculates various values (frequencies, ...)
   sim1.pred <- prediction(sim1.ind, sim1.sta)
   sim2.pred <- prediction(sim2.ind, sim2.sta)
   
-  # calcula pontos das curvas (TPR e FPR)
+  # calculate points of the curves (TPR and FPR)
   sim1.curve <- performance(sim1.pred,"tpr","fpr")
   sim2.curve <- performance(sim2.pred,"tpr","fpr")
   
-  # calcula as áreas
+  # calculates the areas
   sim1.auc <- unlist(performance(sim1.pred,"auc")@y.values)
   sim2.auc <- unlist(performance(sim2.pred,"auc")@y.values)
   
   
-  # calcula fpr e tpr
+  # calculates FPR and TPR
   sim1.fpr <- array(unlist(sim1.curve@x.values))
   sim1.tpr <- array(unlist(sim1.curve@y.values))
   sim2.fpr <- array(unlist(sim2.curve@x.values))
@@ -57,7 +65,7 @@ function(data,nb=1000,alfa=0.05,name,mod1,mod2){
   
   roc.curves.plot(sim1.curve,sim2.curve,mod1,mod2)
   
-  #criação de estruturas para
+  #creation of the structure
   sim1.ind.sample=array(data=NA,c(length(sim1.sta),nb))
   sim2.ind.sample=array(data=NA,c(length(sim2.sta),nb))
   sim1.fpr.sample=array(data=NA,c(length(sim1.fpr),nb))
@@ -74,23 +82,23 @@ function(data,nb=1000,alfa=0.05,name,mod1,mod2){
   for(b in 1:nb){
     
     sim1.ind.sample[,b]=c(sample(norm[,1],imax,TRUE),sample(abnorm[,1],jmax,TRUE))
-    sim2.ind.sample[,b]=c(sample(norm[,2],imax,TRUE),sample(abnorm[,2],jmax,TRUE))
+    sim2.ind.sample[,b]=c(sample(norm[,2],imax2,TRUE),sample(abnorm[,2],jmax2,TRUE))
     
-    # calcula diversos valores (frequencias,...)
+    # calculates various values (frequencies, ...)
     sim1.pred.sample <- prediction(sim1.ind.sample[,b], sim1.sta)
     sim2.pred.sample <- prediction(sim2.ind.sample[,b], sim2.sta)
     
-    # calcula pontos das curvas (TPR e FPR)
+    # calculate points of the curves (TPR and FPR)
     sim1.curve.sample <- performance(sim1.pred.sample,"tpr","fpr")
     sim2.curve.sample <- performance(sim2.pred.sample,"tpr","fpr")
     
-    # calcula as àreas
+    # calculates the areas
     sim1.auc.sample[b] <- unlist(performance(sim1.pred.sample,"auc")@y.values)
     sim2.auc.sample[b] <- unlist(performance(sim2.pred.sample,"auc")@y.values)
     
     diff.auc.sample[b] <- sim1.auc.sample[b]-sim2.auc.sample[b]
     
-    # calcula fpr e tpr
+    # calculate FPR and TPR
     sim1.fpr.sample[1:length(unlist(sim1.curve.sample@x.values)),b] <- array(unlist(sim1.curve.sample@x.values))
     sim1.tpr.sample[1:length(unlist(sim1.curve.sample@y.values)),b] <- array(unlist(sim1.curve.sample@y.values))
     sim2.fpr.sample[1:length(unlist(sim2.curve.sample@x.values)),b] <- array(unlist(sim2.curve.sample@x.values))
@@ -218,7 +226,7 @@ function(data,nb=1000,alfa=0.05,name,mod1,mod2){
   IC.diff.auc.per[1]=quantile(diff.auc.sample,alfa/2)
   IC.diff.auc.per[2]=quantile(diff.auc.sample,1-alfa/2)
   
-  resultdelong=comp.roc.delong(sim1.ind,sim1.sta,sim2.ind,sim2.sta)
+  resultdelong=comp.roc.delong(sim1.ind,sim1.sta,sim2.ind,sim2.sta,related)
   
   nc=0
   for(i in 1:(length(result$diffareas)-1))
@@ -229,13 +237,13 @@ function(data,nb=1000,alfa=0.05,name,mod1,mod2){
   
   resultboot=comp.roc.curves(result,ci.flag=TRUE,graph.flag=T,nomeg)
   
-  if (k==1)
-  {
-    cat("\n   Delong & & & & & & & & Permutation & & & & Bootstrap & & & & & &\\\n")
-    cat("\n  Delong & & & & & & & & Permutation & & & & Bootstrap & & & & & &\\\n",file=paste(nomeg,"Results.txt"),append=TRUE)
-    cat("\n & AUC_1 & SE_1 & AUC_2 & SE_2 & R & Diff & Z & pvalue & AUC_1 & AUC_2 & pvalue & ncoss & IC_AUC_1 & IC_AUC_1 & IC_AUC_2 & IC_AUC_2 & IC_DIFF & IC_DIFF &\\\n")
-    cat("\n & AUC_1 & SE_1 & AUC_2 & SE_2 & R & Diff & Z & pvalue & AUC_1 & AUC_2 & pvalue & ncoss & IC_AUC_1 & IC_AUC_1 & IC_AUC_2 & IC_AUC_2 & IC_DIFF & IC_DIFF &\\\n",file=paste(nomeg,"Results_zang.txt"),append=TRUE);
-  }
+  #if (k==1)
+  #{
+    #cat("\n   Delong & & & & & & & & Permutation & & & & Bootstrap & & & & & &\\\n")
+    #cat("\n  Delong & & & & & & & & Permutation & & & & Bootstrap & & & & & &\\\n",file=paste(nomeg,"Results.txt"),append=TRUE)
+    #cat("\n & AUC_1 & SE_1 & AUC_2 & SE_2 & R & Diff & Z & pvalue & AUC_1 & AUC_2 & pvalue & ncoss & IC_AUC_1 & IC_AUC_1 & IC_AUC_2 & IC_AUC_2 & IC_DIFF & IC_DIFF &\\\n")
+    #cat("\n & AUC_1 & SE_1 & AUC_2 & SE_2 & R & Diff & Z & pvalue & AUC_1 & AUC_2 & pvalue & ncoss & IC_AUC_1 & IC_AUC_1 & IC_AUC_2 & IC_AUC_2 & IC_DIFF & IC_DIFF &\\\n",file=paste(nomeg,"Results_zang.txt"),append=TRUE);
+  #}
   #cat(resultdelong$AUC[1],resultdelong$SE[1],resultdelong$AUC[2],resultdelong$SE[2],resultdelong$R[1,2],resultdelong$AUC[1]-resultdelong$AUC[2],resultdelong$Z,resultdelong$pvalue,result$AUC1,result$AUC2,resultboot$pvalue,nc,IC1.auc.per[1],IC1.auc.per[2],IC2.auc.per[1],IC2.auc.per[2],IC.diff.auc.per[1],IC.diff.auc.per[2],"\\\n", sep=" & ")
   #cat(resultdelong$AUC[1],resultdelong$SE[1],resultdelong$AUC[2],resultdelong$SE[2],resultdelong$R[1,2],resultdelong$AUC[1]-resultdelong$AUC[2],resultdelong$Z,resultdelong$pvalue,result$AUC1,result$AUC2,resultboot$pvalue,nc,IC1.auc.per[1],IC1.auc.per[2],IC2.auc.per[1],IC2.auc.per[2],IC.diff.auc.per[1],IC.diff.auc.per[2],"\\\n", sep=" & ",file=paste(nomeg,"Results_zang.txt"),append=TRUE)
   

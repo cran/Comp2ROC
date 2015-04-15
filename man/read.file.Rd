@@ -1,48 +1,47 @@
 \name{read.file}
 \alias{read.file}
-\title{
-Read data from file
-}
+\title{Read data from file}
+
 \description{
 This function allows to read data from a file.
 }
 \usage{
-read.file(name.file.csv, header.status = TRUE, separator = ";", decimal = ",", 
-modality1, testdirection1, modality2, testdirection2, status1, 
-related = TRUE, status2 = NULL)
+read.file(name.file.csv, header.status = TRUE, separator = ";", decimal = ",", modality1,
+testdirection1, modality2, testdirection2, status1, related = TRUE, status2 = NULL)
 }
+
 \arguments{
-\item{name.file.csv}{
+  \item{name.file.csv}{
 Name of the file with data. The file must be in \code{csv} or \code{txt} format
 }
-\item{header.status}{
+  \item{header.status}{
 Indicates if the file has a header row
 }
-\item{separator}{
+  \item{separator}{
 Indicates what is the column separator
 }
-\item{decimal}{
+  \item{decimal}{
 Indicates what is the decimal separator
 }
-\item{modality1}{
+  \item{modality1}{
 Name of the column of dataframe that represents the first modality
 }
-\item{testdirection1}{
+  \item{testdirection1}{
 Indicates the direction of the test for modality 1. If \code{TRUE} means that larger test results represent more positive test
 }
-\item{modality2}{
+  \item{modality2}{
 Name of the column of dataframe that represents the second modality
 }
-\item{testdirection2}{
+  \item{testdirection2}{
 Indicates the direction of the test for modality 2. If \code{TRUE} means that larger test results represent more positive test
 }
-\item{status1}{
+  \item{status1}{
 Name of the column of dataframe that represents the Status 1
 }
-\item{related}{
+  \item{related}{
 Boolean parameter that represents if the two modalities are related or not
 }
-\item{status2}{
+  \item{status2}{
 Name of the column of dataframe that represents the Status 2
 }
 }
@@ -60,7 +59,6 @@ This functions returns a list with the following data:
 \item{sim2.sta}{Vector with the status for Curve 2}
 }
 
-
 \seealso{
 \code{\link{read.manually.introduced}}
 }
@@ -68,3 +66,4 @@ This functions returns a list with the following data:
 \keyword{ Read }
 \keyword{ Data }
 \keyword{File }
+

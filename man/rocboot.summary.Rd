@@ -1,26 +1,25 @@
 \name{rocboot.summary}
 \alias{rocboot.summary}
+\title{Summary of Comparation}
 
-\title{
-Summary of Comparation}
 \description{
 This function allows to see the information obtained throught function \code{roc.curve.boot}.
 }
 \usage{
-rocboot.summary(result,mod1,mod2)
+rocboot.summary(result, mod1, mod2)
 }
+
 \arguments{
   \item{result}{
 List of statistical measures obtaind throught \code{roc.curves.boot}
 }
   \item{mod1}{
 Name of the column of dataframe that represents the first modality
- }
-   \item{mod2}{
-Name of the column of dataframe that represents the second modality
- }
 }
-
+  \item{mod2}{
+Name of the column of dataframe that represents the second modality
+}
+}
 
 \seealso{
 \code{\link{save.file.summary}}
