@@ -50,10 +50,12 @@ This functions returns a list with the following data:
 }
 
 \examples{
-#data(zhang)
-#moda1="mod1" 
-#moda2="mod2"
-#data=read.manually.introduced(zhang, moda1,TRUE, moda2,TRUE, "status", TRUE)
+\donttest{
+data(zhang)
+moda1 = "modality1" 
+moda2 = "modality2"
+data = read.manually.introduced(zhang, moda1, TRUE, moda2, TRUE, "status", TRUE)
+}
 }
 
 \keyword{ Read }

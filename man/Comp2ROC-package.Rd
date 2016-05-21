@@ -10,15 +10,15 @@ Comaparation of ROC Curves using the methodology devoloped by Braga.
 \tabular{ll}{
 Package: \tab Comp2ROC\cr
 Type: \tab Package\cr
-Version: \tab 1.1\cr
-Date: \tab 2015-04-15\cr
+Version: \tab 1.1.2\cr
+Date: \tab 2016-05-18\cr
 License: \tab GPL-2\cr
 }
 }
 \author{
-Ana C. Braga, with contributions from Hugo Frade and Sara Carvalho
+Ana C. Braga, with contributions from Hugo Frade, Sara Carvalho and Andre M Santiago.
 
-Maintainer: Ana C. Braga <acb@dps.uminho.pt>
+Maintainer: Ana C. Braga <acb@dps.uminho.pt>; Andre M. Santiago <andreportugalsantiago@gmail.com>; 
 }
 \references{
 BRAGA, A. AND COSTA, L. AND OLIVEIRA, P. 2011. An alternative method for global and partial comparasion of two diagnostic system based on ROC curves In Journal of Statistical Computation and Simulation.
@@ -31,13 +31,12 @@ BRAGA, A. AND COSTA, L. AND OLIVEIRA, P. 2011. An alternative method for global 
 
 
 \examples{
-#This is a simple example how to use the package:
-#nameE="new_Zhang"
-#moda1="mod1" 
-#moda2="mod2"
-#data(zhang)
-#data=read.manually.introduced(zhang, moda1,TRUE, moda2, TRUE, "status", TRUE)
-#results=roc.curves.boot(data,name=nameE,mod1= moda1,mod2=moda2) 
-#rocboot.summary(results,moda1,moda2) 
-#save.file.summary(results,nameE,app=TRUE,moda1,moda2) 
+# This is a simple example how to use the package with the given dataset ZHANG:
+nameE = "Zhang"
+modality1DataColumn = "modality1"
+modality2DataColumn = "modality2"
+data(zhang)
+results = roc.curves.boot(zhang, 10, 0.05, name=nameE,
+                          mod1=modality1DataColumn, mod2=modality2DataColumn)
+\donttest{rocboot.summary(results, "modality1", "modality2")}
 }

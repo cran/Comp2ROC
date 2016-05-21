@@ -6,7 +6,7 @@
 This is the function which control the whole package.This uses all functions except the reading ones and \code{rocboot.summary} and \code{save.file.summary}.
 }
 \usage{
-roc.curves.boot(data, nb = 1000, alfa = 0.05, name, mod1, mod2, related = TRUE)
+roc.curves.boot(data, nb = 1000, alfa = 0.05, name, mod1, mod2, related)
 }
 
 \arguments{
@@ -57,12 +57,15 @@ This function returns a list with:
 }
 
 \examples{
-#data(zhang)
-#nameE="new_Zhang"
-#moda1="mod1" 
-#moda2="mod2"
-#data=read.manually.introduced(zhang, moda1, TRUE, moda2, TRUE,  "status", TRUE)
-#results=roc.curves.boot(data,name=nameE,mod1= moda1,mod2=moda2) 
+\donttest{
+data(zhang)
+nameE = "new_Zhang"
+modality1DataColumn = "modality1"
+modality2DataColumn = "modality2"
+data = read.manually.introduced(zhang, moda1, TRUE, moda2, TRUE, "status", TRUE)
+results = roc.curves.boot(zhang, 1000, 0.05, name=nameE,
+                          mod1=modality1DataColumn, mod2=modality2DataColumn)
+}
 }
 
 \keyword{ Permutation }

@@ -35,19 +35,11 @@ This functions saves on the file with name \code{name} the performance parameter
 }
 
 \examples{
-#data(zhang)
-#moda1="mod1" 
-#moda2="mod2"
-#nameE="new_Zhang"
-#data=read.manually.introduced(zhang, moda1, TRUE, moda2, TRUE, "status", TRUE)
-#results=roc.curves.boot(data,name=nameE,mod1= moda1,mod2=moda2) 
-#rocboot.summary(results,moda1,moda2)
+# If the user wants to append the results
+\donttest{save.file.summary(results, nameE, mod1=moda1, mod2=moda2)}
 
-#If the user wants to append the results
-#save.file.summary(results,nameE,mod1=moda1,mod2=moda2)
-
-#If the user doesn't want to append the results
-#save.file.summary(results,nameE,app=FALSE,moda1,moda2)
+# If the user does not want to append the results
+\donttest{save.file.summary(results, nameE, app=FALSE, moda1, moda2)}
 }
 
 \keyword{ Save }

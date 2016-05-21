@@ -26,13 +26,15 @@ Name of the column of dataframe that represents the second modality
 }
 
 \examples{
-#data(zhang)
-#moda1="mod1" 
-#moda2="mod2"
-#nameE="new_zhang"
-#data=read.manually.introduced(zhang, moda1, TRUE, moda2, TRUE, "status", TRUE)
-#results=roc.curves.boot(data,name=nameE,mod1= moda1,mod2=moda2) 
-#rocboot.summary(results,moda1,moda2)
+\donttest{
+data(zhang)
+moda1 = "modality1" 
+moda2 = "modality2"
+nameE = "new_Zhang"
+data = read.manually.introduced(zhang, moda1, TRUE, moda2, TRUE, "status", TRUE)
+results = roc.curves.boot(data, name=nameE, mod1=moda1, mod2=moda2) 
+rocboot.summary(results, moda1, moda2)
+}
 }
 
 \keyword{ Summary }

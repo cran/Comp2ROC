@@ -67,3 +67,14 @@ This functions returns a list with the following data:
 \keyword{ Data }
 \keyword{File }
 
+\examples{
+# This is a simple example how to read a file:
+\donttest{
+data.filename = "zhang.csv"
+modality1DataColumn = "modality1"
+modality2DataColumn = "modality2"
+modality2StatusHeader = "status"  # if different from modality1's header
+                                  # (a.k.a they are independent)
+zhang = read.file(data.filename, TRUE, ";", ".", modality1, TRUE, modality2, TRUE, "status")
+}
+}

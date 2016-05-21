@@ -1,3 +1,6 @@
 exportPattern("^[[:alpha:]]+")
 import("ROCR")
 import("boot")
+importFrom("graphics", "abline", "legend", "lines", "mtext", "title")
+importFrom("stats", "pnorm", "qt", "quantile", "sd")
+importFrom("utils", "read.csv")

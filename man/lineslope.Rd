@@ -21,8 +21,10 @@ This function returns a vector with all slopes of the sampling lines that we cre
 }
 
 \examples{
-K=100
+\donttest{
+K = 100
 lineslope(K)
+}
 }
 
 \keyword{ Sampling }
