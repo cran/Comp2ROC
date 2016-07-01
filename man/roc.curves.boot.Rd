@@ -6,7 +6,7 @@
 This is the function which control the whole package.This uses all functions except the reading ones and \code{rocboot.summary} and \code{save.file.summary}.
 }
 \usage{
-roc.curves.boot(data, nb = 1000, alfa = 0.05, name, mod1, mod2, related)
+roc.curves.boot(data, nb = 1000, alfa = 0.05, name, mod1, mod2, paired)
 }
 
 \arguments{
@@ -29,7 +29,7 @@ Name of Modality 1
   \item{mod2}{
 Name of Modality 2
 }
-  \item{related}{
+  \item{paired}{
 Boolean parameter that represents if the two modalities are related or not
 }
 }

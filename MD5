@@ -1,4 +1,4 @@
-4ed9fc74b5e646aa2a4242d7e94272b8 *DESCRIPTION
+a19addc3f37d15c34142c5186aec4fd3 *DESCRIPTION
 15e08b6dcd4284687775aeff42fc93f5 *NAMESPACE
 306e3daeba82c2ffd6c722f8af3a543e *R/areatriangles.R
 40c0ff5f2d0b1b864ddbfe26055c31d9 *R/comp.roc.curves.R
@@ -10,15 +10,17 @@ bd7f227b114c6ecc46b8b6610d8ebbc6 *R/linedistance.R
 a6c45ad40dcc3b44adc9be8c51d05e97 *R/lineslope.R
 452c2147b2f279582e3a3184a960d262 *R/read.file.R
 c38623a8d710dec822f5b1be8106fcfd *R/read.manually.introduced.R
-9be231f109ddfc4bf631251b099d318e *R/roc.curves.boot.R
+30f61b38bfe2681941a59376a86d494e *R/roc.curves.boot.R
 09f47356ac040bc790c7a76d16537572 *R/roc.curves.plot.R
 e58ed495c0ad7dafef15ab25da7409be *R/rocboot.summary.R
 1cf9680b3e4bde944c281a8a2e1a08f5 *R/rocsampling.R
 4c73ef32a9520175893ffe60ac4dabf9 *R/rocsampling.summary.R
 85398609b7da03046deafac87127e92f *R/save.file.summary.R
+a67d0d9f0251b19d5a648295a552952a *data/cas2015.rda
 ee7687562f577d14909e9e49d469204e *data/zhang.rda
-593e3bb01c8c2bb344440bc3b3265dea *man/Comp2ROC-package.Rd
+9fa5bd1c52f8d3d3e13daf10745d3588 *man/Comp2ROC-package.Rd
 17ed435dfaa7ce38205c6256c33d48ed *man/areatriangles.Rd
+e7b0e5bd53e868bc5f578b5a008dbb5c *man/cas2015.Rd
 33aaf55857d346303a1b9daaaf7b5d83 *man/comp.roc.curves.Rd
 2b198252c4c3cbf34bb1d3a2170028d7 *man/comp.roc.delong.Rd
 869a08e17511de0f6899ce4c194363ab *man/curvesegslope.Rd
@@ -28,7 +30,7 @@ d92f078463fe8ad2201c8f89bab0dd2e *man/linedistance.Rd
 d4040d68463b51288fd254bfc9f2527c *man/lineslope.Rd
 5390d4b5eeaaa685802d22e30404dcf7 *man/read.file.Rd
 b09e54276fe52f3e3e99b9003afab4dd *man/read.manually.introduced.Rd
-c7b809056ce394612b16c119cfb68ffd *man/roc.curves.boot.Rd
+d71f32956cd46d8f31d30a3cdb381511 *man/roc.curves.boot.Rd
 937a45b34dcc3a008f9d1637cd2ac217 *man/roc.curves.plot.Rd
 34fdac905121fa10a755391114090b51 *man/rocboot.summary.Rd
 e1c35c6c3a29daf0970970b965b2d182 *man/rocsampling.Rd

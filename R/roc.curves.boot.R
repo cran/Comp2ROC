@@ -1,9 +1,9 @@
 roc.curves.boot <-
-    function(data,  nb=1000,  alfa=.05,  name,  mod1,  mod2,  related) {
+    function(data,  nb=1000,  alfa=.05,  name,  mod1,  mod2,  paired) {
         
-        if (missing(related))
-            related = data$Related
-        #cat("Related: ", related, "\n")
+        if (missing(paired))
+            paired = data$Related
+        #cat("Related: ", paired, "\n")
         
         nomeg = paste(name)
         
@@ -12,10 +12,10 @@ roc.curves.boot <-
         
         sim1.sta = unlist(data[3])
 
-        #if (!related)
-        sim2.sta = unlist(data[4])
-        #else
-        sim2.sta = sim1.sta
+        if (!paired)
+            sim2.sta = unlist(data[4])
+        else
+            sim2.sta = sim1.sta
         
         imax  = length(sim1.sta[sim1.sta == 0])
         jmax  = length(sim1.sta[sim1.sta == 1])
@@ -276,7 +276,7 @@ roc.curves.boot <-
                                        sim1.sta,
                                        sim2.ind,
                                        sim2.sta,
-                                       related)
+                                       paired)
         
         nc = 0
         for(i in 1:(length(result$diffareas) - 1)) {
